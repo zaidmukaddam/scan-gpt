@@ -13,7 +13,7 @@ export default function Home() {
       <SEO
         title="ScanGPT | Download Extension"
         description="Identify GPT-generated text on any web page with our advanced extension."
-        image="https://github.com/zaidmukaddam/scan-gpt/blob/main/scan-gpt-next/public/og/home-image.png?raw=true"
+        image="https://scangpt.space/og/home-image.png"
         url="https://scangpt.space/"
       />
       <Background theme="dark" />

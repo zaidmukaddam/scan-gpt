@@ -24,7 +24,6 @@ export default function SEO({
       <meta name="twitter:description" content={description} />
 
       {/* images */}
-      <meta property="image" content={image} />
       <meta property="og:image" content={image} />
       <meta name="twitter:image" content={image} />
 

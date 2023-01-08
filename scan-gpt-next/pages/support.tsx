@@ -18,7 +18,7 @@ export default function Support() {
         <SEO
           title="ScanGPT | Support"
           description="Get help with our extension."
-          image="https://github.com/zaidmukaddam/scan-gpt/blob/main/scan-gpt-next/public/og/support-image.png?raw=true"
+          image="https://scangpt.space/og/support-image.png"
           url="https://scangpt.space/support"
         />
         <Background theme="light" />
