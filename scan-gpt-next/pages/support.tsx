@@ -58,7 +58,7 @@ export default function Support() {
                 open={fourthCollapseOpen}
                 title={"How do I contact support?"}
                 content={
-                  "You can contact our support by emailing 04slacks.monitor@icloud.com. We are available to assist you Monday through Friday, 9am to 5pm EST, or randomly at other times."
+                  "You can contact our support by emailing zaidmukaddam@proton.me."
                 }
               />
             </div>
