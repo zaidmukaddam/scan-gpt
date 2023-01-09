@@ -15,7 +15,7 @@ export default function Text() {
         }}
         data-splitbee-event="Launching ScanGPT!"
         style={{ transition: "background-color 0.3s ease, color 0.3s ease" }}
-        className="flex items-center justify-center gap-2 bg-slate-200/80 px-6 py-2 rounded-2xl font-bold text-white cursor-pointer hover:bg-sky-200/20 hover:text-white/40 group "
+        className="flex items-center justify-center gap-2 bg-sky-200/80 px-8 py-2 rounded-2xl font-bold text-white cursor-pointer hover:bg-sky-200/20 hover:text-white/40 group "
       >
         <Image
           src={instagram}
