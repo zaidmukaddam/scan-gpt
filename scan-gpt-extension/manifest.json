@@ -10,7 +10,7 @@
     }
   ],
   "host_permissions": ["https://scangpt.space/*"],
-  "permissions": ["activeTab", "tabs"],
+  "permissions": ["tabs"],
   "icons": {
     "16": "scan-gpt.png",
     "48": "scan-gpt.png",
