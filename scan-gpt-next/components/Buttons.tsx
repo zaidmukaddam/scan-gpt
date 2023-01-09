@@ -8,6 +8,7 @@ export default function Buttons() {
     <div className="flex flex-col md:flex-row items-center justify-center gap-2 md:gap-8">
       <motion.a
         href="https://chrome.google.com/webstore/detail/scangpt/goaaajgmfpnfebljepkcdmlmjfpeamko"
+        data-splitbee-event="Install Extension"
         initial={{ opacity: 0, scale: 0.8 }}
         animate={{ opacity: 1, scale: 1 }}
         transition={{
@@ -35,6 +36,7 @@ export default function Buttons() {
           delay: 0.25,
           duration: 0.3,
         }}
+        data-splitbee-event="Star on Github"
         style={{ transition: "color 0.3s ease" }}
         className="flex gap-2 items-center justify-center rounded-2xl text-white text-lg font-semibold px-6 py-1.5 hover:text-white/40 group"
       >
