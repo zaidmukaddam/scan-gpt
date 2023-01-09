@@ -40,8 +40,8 @@ export default function Support() {
                 delay={0.25}
                 setOpen={setSecondCollapseOpen}
                 open={secondCollapseOpen}
-                title="How do I get it for Safari?"
-                content="For now, the extension is only available for Chrome. We are working on a Safari version and will release it as soon as possible. Stay tuned in our Instgram account for updates."
+                title="How do I get it for Firefox?"
+                content="For now, the extension is only available for Chrome. We are working on a Firefox version and will release it as soon as possible. Stay tuned in our Instgram account for updates."
               />
               <Accordion
                 delay={0.3}
