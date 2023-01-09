@@ -35,6 +35,7 @@ export default function Footer({ theme }: { theme: "light" | "dark" }) {
           style={{ color }}
           href="https://instagram.com/scangpt"
           className="font-medium text-sm py-1 px-2 cursor-pointer"
+          data-splitbee-event="Instagram"
         >
           Instagram
         </Link>
