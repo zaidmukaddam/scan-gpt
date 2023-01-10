@@ -4,7 +4,7 @@ Our extension makes it simple to find GPT-generated text on any web page. Just i
 
 Website → [ ScanGPT ](https://scangpt.space)
 
-Extension → [ Soon enough ](https://scangpt.space)
+Extension → [ ScanGPT ](https://chrome.google.com/webstore/detail/scangpt/goaaajgmfpnfebljepkcdmlmjfpeamko)
 
 ### Tech:
 
