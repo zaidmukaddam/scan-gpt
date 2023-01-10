@@ -54,6 +54,8 @@ function sanitizeParagraphs(data: string[]) {
   data = data.map((paragraph) => paragraph.replace(/(\r\n|\n|\r)/gm, " "));
   // remove all the extra spaces
   data = data.map((paragraph) => paragraph.replace(/\s+/g, " "));
+  // replace all /" with "
+  data = data.map((paragraph) => paragraph.replace(/\\\"/g, '"'));
   // remove all the empty paragraphs
   data = data.filter((paragraph) => paragraph !== "" && paragraph !== " ");
   // return the data
