@@ -4,6 +4,7 @@ export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse
 ) {
+  console.log("received request on /api/paragraph-scan");
   // handle (not)post requests
   if (req.method !== "POST") {
     res.status(400).json({
@@ -29,7 +30,8 @@ export default async function handler(
   );
   const probability = await response.json();
 
-  res.status(200).json({ probability });
+  console.log("response", { text, probability: probability.fake_probability });
+  res.status(200).json({ text, probability: probability.fake_probability });
 }
 
 function sanitizeText(text: string) {

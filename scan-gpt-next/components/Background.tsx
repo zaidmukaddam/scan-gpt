@@ -8,11 +8,11 @@ export default function Background({ theme }: { theme: "light" | "dark" }) {
   switch (theme) {
     case "dark":
       backgroundColor = "#0f0f0f";
-      opacity = "0.6";
+      opacity = "0.4";
       break;
     case "light":
       backgroundColor = "#ffffff";
-      opacity = "0.3";
+      opacity = "0.2";
       break;
   }
 
@@ -20,15 +20,15 @@ export default function Background({ theme }: { theme: "light" | "dark" }) {
     <>
       <div
         style={{ backgroundColor }}
-        className="fixed w-full top-0 bottom-0 -z-20"
+        className="fixed w-full top-0 bottom-0 -z-20 overflow-hidden"
       >
         <div
           id="blob-one"
-          className="absolute top-0 left-0 h-96 w-96 rounded-full blur-[128px]"
+          className="absolute top-0 left-0 h-[600px] w-[600px] rounded-full blur-[128px]"
         />
         <div
           id="blob-two"
-          className="absolute bottom-0 right-0 h-96 w-96 rounded-full blur-[128px]"
+          className="absolute bottom-0 right-0 h-[600px] w-[600px] rounded-full blur-[128px]"
         />
       </div>
       <Image

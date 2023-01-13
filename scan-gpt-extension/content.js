@@ -1,71 +1,31 @@
-console.log("content script running");
+let tags = document.getElementsByTagName("p");
+let paragraphs = [];
+let collections = [];
 
-chrome.runtime.onMessage.addListener(gotCommand);
-
-function gotCommand(request, sender, sendResponse) {
-  if (request.command == "get-paragraphs") {
-    const tags = document.querySelectorAll("p");
-
-    const paragraphs = [];
-
-    tags.forEach((tag) => {
-      // remove empty paragraphs
-      if (tag.innerText === "") return;
-      paragraphs.push(tag.innerText);
-    });
-    console.log(paragraphs);
-    // sanitize all paragraphs for json-safe
-    // remove all newlines
-    // remove all tabs or double spaces
-    for (let i = 0; i < paragraphs.length; i++) {
-      paragraphs[i] = paragraphs[i].replace(/"/g, '\\"');
-      paragraphs[i] = paragraphs[i].replace(/(\r\n|\n|\r)/gm, "");
-      paragraphs[i] = paragraphs[i].replace(/\s\s+/g, " ");
-    }
-
-    // remove empty paragraphs
-    for (let i = 0; i < paragraphs.length; i++) {
-      if (paragraphs[i] == "") {
-        paragraphs.splice(i, 1);
-      }
-    }
-    console.log(paragraphs);
-    sendResponse({ content: paragraphs });
+for (let i = 0; i < tags.length; i++) {
+  if (tags[i].textContent.trim() !== "") {
+    paragraphs.push(tags[i].textContent);
   }
 }
 
-function getContents() {
-  try {
-    const tags = document.querySelectorAll("p");
+// separate all paragraphs into words
+let words = [];
+paragraphs.map((p) => p.split(" ").forEach((w) => words.push(w)));
 
-    const contents = [];
-
-    tags.forEach((tag) => {
-      contents.push(tag.innerText);
-    });
-    return contents;
-  } catch (error) {
-    return null;
-  }
+// separate words in collections
+for (let i = 0; i < words.length; i += 100) {
+  collections.push(words.slice(i, i + 100).join(" "));
 }
 
-async function getProbability(contents) {
-  try {
-    const validatorUrl = "https://huggingface.co/openai-detector?";
+console.log("ScanGPT - content script loaded");
 
-    const probability = [];
-
-    await contents.forEach((content) => {
-      fetch(validatorUrl + encodeURI(content), {
-        method: "GET",
-      }).then((res) =>
-        res.json().then((data) => {
-          probability.push(data.fake_probability);
-        })
-      );
+// Listen for message from popup.js
+chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
+  if (request.message === "get_paragraphs_and_collections") {
+    console.log("ScanGPT - received message from popup script");
+    sendResponse({
+      paragraphs: paragraphs,
+      collections: collections,
     });
-    return probability;
-  } catch (error) {
-    return null;
   }
-}
+});
