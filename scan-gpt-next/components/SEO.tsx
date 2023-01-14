@@ -23,6 +23,12 @@ export default function SEO({
       <meta property="og:description" content={description} />
       <meta name="twitter:description" content={description} />
 
+      {/* keywords */}
+      <meta
+        name="keywords"
+        content="AI, Text identification, Machine learning, Natural language processing, Extension, Browser, Meta tags, Text analysis, Data analysis, Automated text analysis, Text recognition, Content analysis, Text mining, Text categorization, AI text identifier, AI text detection, Text analysis tool, NLP tool, Text categorization tool"
+      />
+
       {/* images */}
       <meta property="og:image" content={image} />
       <meta name="twitter:image" content={image} />

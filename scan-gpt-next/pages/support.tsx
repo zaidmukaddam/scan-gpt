@@ -1,10 +1,10 @@
-import Background from "../components/Background";
-import Footer from "../components/Footer";
-import Header from "../components/Header";
 import SEO from "../components/SEO";
+import Header from "../components/Header";
 import Help from "../components/Help";
-import { useState } from "react";
 import Accordion from "../components/Accordion";
+import Footer from "../components/Footer";
+
+import { useState } from "react";
 
 export default function Support() {
   const [firstCollapseOpen, setFirstCollapseOpen] = useState(false);
@@ -21,9 +21,8 @@ export default function Support() {
           image="https://scangpt.space/og/support-image.png"
           url="https://scangpt.space/support"
         />
-        <Background theme="light" />
         <main className="w-full flex flex-col items-center">
-          <Header theme="light" />
+          <Header />
           <section className="flex flex-col gap-10 py-20 items-center">
             <Help />
             <div className="flex flex-col items-center w-[100vw] px-6 md:w-[80vw] lg:w-[70vw] xl:w-[60vw] 2xl:w-[50vw] md:px-0">
@@ -40,8 +39,8 @@ export default function Support() {
                 delay={0.25}
                 setOpen={setSecondCollapseOpen}
                 open={secondCollapseOpen}
-                title="How do I get it for Firefox?"
-                content="For now, the extension is only available for Chrome. We are working on a Firefox version and will release it as soon as possible. Stay tuned in our Instgram account for updates."
+                title="How do I get it for FireFox?"
+                content="For now, the extension is only available for Chrome. We are working on a FireFox version and will release it as soon as possible. Stay tuned in our Instagram account for updates."
               />
               <Accordion
                 delay={0.3}
@@ -58,12 +57,12 @@ export default function Support() {
                 open={fourthCollapseOpen}
                 title={"How do I contact support?"}
                 content={
-                  "You can contact our support by emailing zaidmukaddam@proton.me."
+                  "You can contact our support by emailing zaidmukaddam@proton.me. We are available to assist you Monday through Friday, 9am to 5pm IST, or randomly at other times."
                 }
               />
             </div>
           </section>
-          <Footer theme="light" />
+          <Footer page="support" />
         </main>
       </div>
     </>
