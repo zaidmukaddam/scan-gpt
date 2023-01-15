@@ -8,6 +8,10 @@ Extension → [ Install ](https://chrome.google.com/webstore/detail/scangpt/goaa
 
 Instagram → [ @ScanGPT ](https://instagram.com/scangpt)
 
+### Some Snaps:
+
+<a href="https://scangpt.space"><img alt="Redesigned Home Page" src="https://github.com/zaidmukaddam/scan-gpt/blob/main/images/home-page.png" style="border-radius:16px"></a>
+
 ### Tech:
 
 #### Website:
