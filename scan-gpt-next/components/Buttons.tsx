@@ -8,7 +8,7 @@ export default function Buttons() {
     <>
       <div className="flex flex-col mt-12 sm:flex-row items-center justify-center gap-2 sm:gap-8">
         <motion.a
-          href="https://chrome.google.com/webstore/detail/scangpt/goaaajgmfpnfebljepkcdmlmjfpeamko"
+          href="/extension"
           data-splitbee-event="Get Extension"
           initial={{ opacity: 0, scale: 0.4 }}
           animate={{ opacity: 1, scale: 1 }}
