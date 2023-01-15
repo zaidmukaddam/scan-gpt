@@ -6,7 +6,7 @@ import github from "../public/icons/github.svg";
 export default function Buttons() {
   return (
     <>
-      <div className="flex flex-col mt-12 sm:flex-row items-center justify-center gap-2 sm:gap-8">
+      <div className="flex flex-col mt-12 sm:flex-row items-center justify-center gap-2 sm:gap-8 overflow-hidden">
         <motion.a
           href="/extension"
           data-splitbee-event="Get Extension"
