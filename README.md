@@ -33,7 +33,7 @@ Instagram → [ @ScanGPT ](https://instagram.com/scangpt)
 - [x] Fix scroll overflow
 - [x] Add XSS prevention on the backend
 - [x] Add star on GitHub button
-- [x] Add "Introducing InspectGPT" twitter thingy
+- [x] Add "Introducing ScanGPT" twitter thingy
 - [x] Resolve single paragraph issue
 - [x] Improve README
 
