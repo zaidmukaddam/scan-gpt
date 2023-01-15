@@ -4,7 +4,9 @@ Our extension makes it simple to find GPT-generated text on any web page. Just i
 
 Website → [ ScanGPT ](https://scangpt.space)
 
-Extension → [ ScanGPT ](https://chrome.google.com/webstore/detail/scangpt/goaaajgmfpnfebljepkcdmlmjfpeamko)
+Extension → [ Install ](https://chrome.google.com/webstore/detail/scangpt/goaaajgmfpnfebljepkcdmlmjfpeamko)
+
+Instagram → [ @ScanGPT ](https://instagram.com/scangpt)
 
 ### Tech:
 
@@ -30,22 +32,33 @@ Extension → [ ScanGPT ](https://chrome.google.com/webstore/detail/scangpt/goaa
 - [x] Publish on Chrome store
 - [x] Fix scroll overflow
 - [x] Add XSS prevention on the backend
-- [x] (MOVED TO NEXT VERSION) Add account feature to save scanned pages
 - [x] Add star on GitHub button
-- [x] Add "Introducing ScanGPT" insta thingy
+- [x] Add "Introducing InspectGPT" twitter thingy
 - [x] Resolve single paragraph issue
-- [x] DISCARED Add scan button to extension instead of automatically do it
 - [x] Improve README
 
-# V1.0 is out - waiting chrome review
+# V1.0 is out!
 
 ### TODO:
 
 - [x] Update permissions on manifest
 - [x] Support page
 - [x] Content on support page
-- [ ] Account to save pages
-- [ ] Define EventListeners/onclick handler
 - [x] Lighter Option on support page
 - [x] Motion for Option component
 - [x] Buttons have a ugly flickr on mobile
+- [x] Dashboard page
+- [x] Mobile version for Dashboard
+- [x] Fix border radius
+- [x] Fix the extension/api
+- [x] Add loading components
+- [x] Add error components
+
+# Extension Fix - Extension has been fixed
+
+Vercel functions can only execute for 10 seconds.
+
+Api/scan was taking too much to execute with all the paragraphs (164 seconds).
+Extension fix is now fetching individual paragraphs instead of all in the same request.
+
+#### Author: [ Zaid Mukaddam ](https://github.com/zaidmukaddam)
