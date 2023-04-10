@@ -23,7 +23,7 @@ export default async function handler(
   const text = sanitizeText(req.body.text);
 
   const response = await fetch(
-    `https://huggingface.co/openai-detector?${encodeURI(text)}`,
+    `http://34.172.169.134:8080?${encodeURI(text)}`,
     {
       method: "GET",
     }

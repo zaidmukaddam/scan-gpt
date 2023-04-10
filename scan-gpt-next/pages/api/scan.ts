@@ -68,7 +68,7 @@ async function detectAiText(data: string[]) {
 
     // add timeout to the fetch
     const res = await fetch(
-      `https://huggingface.co/openai-detector?${encodeURI(paragraph)}`,
+      `http://34.172.169.134:8080?${encodeURI(paragraph)}`,
       {
         method: "GET",
       }
@@ -101,7 +101,7 @@ async function getGPTAverage(data: string[]) {
   // fetch for each sentence
   for (const sentence of sentences) {
     const res = await fetch(
-      `https://huggingface.co/openai-detector?${encodeURI(sentence)}`,
+      `http://34.172.169.134:8080?${encodeURI(sentence)}`,
       {
         method: "GET",
       }
