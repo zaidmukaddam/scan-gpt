@@ -101,7 +101,7 @@ async function getGPTAverage(data: string[]) {
   // fetch for each sentence
   for (const sentence of sentences) {
     const res = await fetch(
-      `http://34.172.169.134:8080?${encodeURI(sentence)}`,
+      `http://34.69.57.106:8080?${encodeURI(sentence)}`,
       {
         method: "GET",
       }

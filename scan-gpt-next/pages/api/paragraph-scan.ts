@@ -23,7 +23,7 @@ export default async function handler(
   const text = sanitizeText(req.body.text);
 
   const response = await fetch(
-    `http://34.172.169.134:8080?${encodeURI(text)}`,
+    `http://34.69.57.106:8080?${encodeURI(text)}`,
     {
       method: "GET",
     }
