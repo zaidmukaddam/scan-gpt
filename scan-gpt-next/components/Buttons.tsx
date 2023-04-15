@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 import chrome from "../public/icons/chrome.svg";
 import github from "../public/icons/github.svg";
+import playbadge from "../public/icons/google-play.png";
 
 export default function Buttons() {
   return (
@@ -49,6 +50,29 @@ export default function Buttons() {
             height={26}
           />
           Star on Github
+        </motion.a>
+        {/* add google playy button */}
+        <motion.a
+          href="/app"
+          data-splitbee-event="Google Play"
+          rel="noreferrer"
+          target="_blank"
+          initial={{ opacity: 0, scale: 0.4 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{
+            delay: 0.1,
+            duration: 0.6,
+            type: "spring",
+          }}
+          style={{ transition: "color 0.3s ease" }}
+          className="flex gap-2 items-center justify-center rounded-2xl text-white text-lg font-medium px-6 py-1.5 hover:text-white/40 group"
+        >
+          <Image
+            src={playbadge}
+            className="group-hover:opacity-40 duration-300"
+            alt={"google play logo"}
+            height={70}
+          />
         </motion.a>
       </div>
     </>
