@@ -1,39 +1,45 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>ScanGPT</title>
-    <meta charset="utf-8" />
-    <link rel="stylesheet" href="popup.css" />
-  </head>
-  <body style="background-color: #201e21; width: 426px">
-    <header class="static-header">
-      <img src="/scan-gpt-logo.svg" height="36px" />
-      <!-- <button class="static-button">Sign in</button> -->
-    </header>
-    <div id="results" style="padding: 10px 20px">
-      <div id="page-scan" class="scan-page">
-        <span class="scan-label"> Page Scan </span>
-        <div class="lds-ellipsis" id="page-load">
-          <div></div>
-          <div></div>
-          <div></div>
-          <div></div>
-        </div>
-        <!-- <p class="scan-bubble">6 GPT Paragraphs</p>
+
+<head>
+  <title>ScanGPT</title>
+  <meta charset="utf-8" />
+  <link rel="stylesheet" href="popup.css" />
+</head>
+
+<body style="background-color: #201e21; width: 426px">
+  <header class="static-header">
+    <img src="/scan-gpt-logo.svg" height="36px" />
+    <!-- <button class="static-button">Sign in</button> -->
+  </header>
+  <div class="menu-container">
+    <button id="scan-page-button" class="menu-button">Scan Page</button>
+    <button id="input-text-button" class="menu-button">Input Text</button>
+  </div>
+  <div id="results" style="padding: 10px 20px" style="display: none !important;">
+    <div id="page-scan" class="scan-page" style="display: none;">
+      <span class="scan-label"> Page Scan </span>
+      <div class="lds-ellipsis" id="page-load">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
+      <!-- <p class="scan-bubble">6 GPT Paragraphs</p>
         <p class="scan-bubble">6 GPT Paragraphs</p>
         <p class="scan-bubble">6 GPT Paragraphs</p>
         <p class="scan-bubble">6 GPT Paragraphs</p> -->
+    </div>
+    <div id="paragraph-scan" class="scan-page-mod" style="display: none;">
+      <span class="scan-label"> Paragraphs Scan </span>
+      <div class="lds-ellipsis" id="paragraph-load">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
       </div>
-      <div id="paragraph-scan" class="scan-page-mod">
-        <span class="scan-label"> Paragraphs Scan </span>
-        <div class="lds-ellipsis" id="paragraph-load">
-          <div></div>
-          <div></div>
-          <div></div>
-          <div></div>
-        </div>
 
-        <!-- <p class="scan-paragraph">
+      <!-- <p class="scan-paragraph">
           Here is an example of a content script that does what you described: -
           Probability: 0.6065120100975037 This script is essentially collecting
           all elements in the page that are tagged with 'p' and storing them in
@@ -44,8 +50,25 @@
           sends back paragraphs and chunks
         </p>
         <span class="scan-bubble-focus"> 67% GPT Probability </span> -->
-      </div>
     </div>
-    <script src="popup.js"></script>
-  </body>
+    <div class="user-input-container" style="display: none;">
+      <span class="scan-label">User Input Scan</span>
+      <textarea id="input-textarea" class="input-textarea" placeholder="Enter your text here"></textarea>
+      <button id="submit-input" class="submit-button">
+        <span id="submit-text">Submit</span>
+        <div class="lds-ellipsis submit-loader" style="display: none;">
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+        </div>
+      </button>
+    </div>
+    <div id="user-input-results" class="scan-page-mod">
+      <!-- User input results will be displayed here -->
+    </div>
+  </div>
+  <script src="popup.js"></script>
+</body>
+
 </html>
