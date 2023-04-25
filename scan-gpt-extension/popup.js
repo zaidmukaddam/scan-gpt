@@ -28,42 +28,71 @@ submitButton.addEventListener("click", function () {
   submitText.style.display = "none";
   submitLoader.style.display = "inline-block";
 
-  setTimeout(() => {
-    // Remove the loader animation and display the "Submit" text again
-    submitText.style.display = "inline";
-    submitLoader.style.display = "none";
-  }, 1000);
-  // Call your function to perform the scan here
+  // Call function to perform the scan here
   handleUserInput();
 });
 
-
-function handleUserInput() {
-  const userInput = document.getElementById("input-textarea").value;
-
-  fetch(`https://scangpt.space/api/paragraph-scan`, {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ text: userInput }),
-  })
-    .then((response) => response.json())
-    .then((data) => {
-      const resultsContainer = document.getElementById("user-input-results");
-      resultsContainer.innerHTML = `<p class="scan-paragraph">${data.text}</p>`;
-      resultsContainer.innerHTML += `<p class="scan-bubble-focus">${Math.ceil(
-        data.probability * 100
-      )}% GPT probability</p>`;
-      resultsContainer.innerHTML += `<div class="scan-separator"></div>`;
-    })
-    .catch((error) => {
-      // Handle errors
-      console.error("Error:", error);
-    });
+function removeLinks(text) {
+  return text.replace(/https?:\/\/[^\s]+/g, "");
 }
 
 
-// Add click event listener for the submit button
-// document.getElementById("submit-input").addEventListener("click", handleUserInput);
+function handleUserInput() {
+  const inputTextarea = document.getElementById("input-textarea");
+  const paragraphs = inputTextarea.value.split(/\n\s*\n/);
+  const cleanedParagraphs = paragraphs.map(removeLinks);
+
+  let paragraphPromises = [];
+
+  // Make API requests for each paragraph
+  for (let i = 0; i < cleanedParagraphs.length; i++) {
+    paragraphPromises.push(
+      fetch(`https://scangpt.space/api/paragraph-scan`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ text: cleanedParagraphs[i] }),
+      })
+    );
+  }
+
+  console.log(paragraphPromises);
+
+  // Wait for all API requests to complete
+  Promise.all(paragraphPromises)
+    .then((responses) => Promise.all(responses.map((r) => r.json())))
+    .then((data) => {
+      // Display paragraphs with their probabilities
+      let results = document.getElementById("user-input-results");
+      results.innerHTML = ""; // Clear previous results
+
+      for (let i = 0; i < data.length; i++) {
+        results.innerHTML += `<p class="scan-paragraph">${cleanedParagraphs[i]}</p>`;
+        results.innerHTML += `<p class="scan-bubble-focus">${Math.ceil(
+          data[i].probability * 100
+        )}% GPT probability</p>`;
+        results.innerHTML += `<div class="scan-separator"></div>`;
+      }
+      submitText.style.display = "inline";
+      submitLoader.style.display = "none";
+    })
+    .catch((error) => {
+      console.error(error);
+      submitText.style.display = "inline";
+      submitLoader.style.display = "none";
+      // Handle the error (e.g., display an error message)
+      const errorContainer = document.getElementById("user-input-results");
+      errorContainer.style.display = "flex";
+      errorContainer.style.flexDirection = "column";
+      errorContainer.style.justifyContent = "center";
+      errorContainer.style.alignItems = "center";
+
+      errorContainer.innerHTML += `<p class="error-message">Something went wrong. Try again later.</p>`; // If the error persists, contact our support team.
+      errorContainer.innerHTML += `<a class="error-link" href="https://scangpt.space/support" target="_blank" rel="noreferrer">Support Page</a>`;
+      errorContainer.innerHTML += `<p class="error-or">OR</p>`;
+      errorContainer.innerHTML += `<p class="error-message">Try using the <a class="error-link" href="https://scangpt.space/app" target="_blank" rel="noreferrer">app</a>.</p>`;
+    });
+}
+
 
 function scanPage() {
   // Send message to content script to get paragraphs and collections
@@ -175,6 +204,8 @@ function scanPage() {
 
             errorContainer.innerHTML += `<p class="error-message">Something went wrong. Try again later.</p>`; // If the error persists, contact our support team.
             errorContainer.innerHTML += `<a class="error-link" href="https://scangpt.space/support" target="_blank" rel="noreferrer">Support Page</a>`;
+            errorContainer.innerHTML += `<p class="error-or">OR</p>`;
+            errorContainer.innerHTML += `<p class="error-message">Try using the <a class="error-link" href="https://scangpt.space/app" target="_blank" rel="noreferrer">app</a>.</p>`;
           });
       }
     );

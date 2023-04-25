@@ -1,7 +1,7 @@
 {
   "name": "ScanGPT",
-  "description": "Our extension makes it simple to find GPT-generated text on any web page or text. Just install it and let it scan the page for you.",
-  "version": "1.2.0",
+  "description": "Our extension makes it simple to find GPT-generated text on any website or any text given to it.",
+  "version": "1.2.5",
   "manifest_version": 3,
   "content_scripts": [
     {
