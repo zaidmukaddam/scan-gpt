@@ -68,13 +68,17 @@ async function detectAiText(data: string[]) {
 
     // add timeout to the fetch
     const res = await fetch(
-      `http://34.172.169.134:8080?${encodeURI(paragraph)}`,
+      `http://34.67.241.88:8080/api/score`,
       {
-        method: "GET",
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ text: paragraph }),
       }
     );
     const data = await res.json();
-    results.push(parseFloat(data.fake_probability));
+    results.push(parseFloat(data.probability));
   }
   // return the result
   return results;
@@ -101,13 +105,17 @@ async function getGPTAverage(data: string[]) {
   // fetch for each sentence
   for (const sentence of sentences) {
     const res = await fetch(
-      `http://34.69.57.106:8080?${encodeURI(sentence)}`,
+      `http://34.67.241.88:8080/api/score`,
       {
-        method: "GET",
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ text: sentence }),
       }
     );
     const data = await res.json();
-    results.push(parseFloat(data.fake_probability));
+    results.push(parseFloat(data.probability));
   }
 
   console.log("results", results);

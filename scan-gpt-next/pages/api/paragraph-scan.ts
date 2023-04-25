@@ -23,15 +23,19 @@ export default async function handler(
   const text = sanitizeText(req.body.text);
 
   const response = await fetch(
-    `http://34.69.57.106:8080?${encodeURI(text)}`,
+    `http://34.67.241.88:8080/api/score`,
     {
-      method: "GET",
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ text: text }),
     }
   );
   const probability = await response.json();
 
-  console.log("response", { text, probability: probability.fake_probability });
-  res.status(200).json({ text, probability: probability.fake_probability });
+  console.log("response", { text, probability: probability.probability });
+  res.status(200).json({ text, probability: probability.probability });
 }
 
 function sanitizeText(text: string) {
