@@ -68,7 +68,7 @@ async function detectAiText(data: string[]) {
 
     // add timeout to the fetch
     const res = await fetch(
-      `http://34.67.241.88:8080/api/score`,
+      `http://34.69.69.130:8080/api/score`,
       {
         method: "POST",
         headers: {
@@ -105,7 +105,7 @@ async function getGPTAverage(data: string[]) {
   // fetch for each sentence
   for (const sentence of sentences) {
     const res = await fetch(
-      `http://34.67.241.88:8080/api/score`,
+      `http://34.69.69.130:8080/api/score`,
       {
         method: "POST",
         headers: {

@@ -23,7 +23,7 @@ export default async function handler(
   const text = sanitizeText(req.body.text);
 
   const response = await fetch(
-    `http://34.67.241.88:8080/api/score`,
+    `http://34.69.69.130:8080/api/score`,
     {
       method: "POST",
       headers: {
