@@ -23,7 +23,7 @@ export default async function handler(
   const text = sanitizeText(req.body.text);
 
   const response = await fetch(
-    `http://34.69.69.130:8080/api/score`,
+    `https://12b5-34-32-162-96.ngrok-free.app/api/score`,
     {
       method: "POST",
       headers: {
