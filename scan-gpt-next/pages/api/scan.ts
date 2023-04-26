@@ -68,7 +68,7 @@ async function detectAiText(data: string[]) {
 
     // add timeout to the fetch
     const res = await fetch(
-      `https://12b5-34-32-162-96.ngrok-free.app/api/score`,
+      `https://508a-35-185-147-178.ngrok-free.app/api/score`,
       {
         method: "POST",
         headers: {
@@ -105,7 +105,7 @@ async function getGPTAverage(data: string[]) {
   // fetch for each sentence
   for (const sentence of sentences) {
     const res = await fetch(
-      `https://12b5-34-32-162-96.ngrok-free.app/api/score`,
+      `https://508a-35-185-147-178.ngrok-free.app/api/score`,
       {
         method: "POST",
         headers: {
