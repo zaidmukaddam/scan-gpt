@@ -5,9 +5,11 @@
   <title>ScanGPT</title>
   <meta charset="utf-8" />
   <link rel="stylesheet" href="popup.css" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
 </head>
 
-<body style="background-color: #201e21; width: 426px">
+<body style="background-color: #1E1E1E; width: 426px">
   <header class="static-header">
     <img src="/scan-gpt-logo.svg" height="36px" />
     <!-- <button class="static-button">Sign in</button> -->
@@ -52,18 +54,38 @@
         </p>
         <span class="scan-bubble-focus"> 67% GPT Probability </span> -->
     </div>
-    <div class="user-input-container" style="display: none;">
+  </div>
+  <div class="scan-text" style="display: none;">
+    <div class="user-input-container">
       <span class="scan-label">Scan Text</span>
       <textarea id="input-textarea" class="input-textarea" placeholder="Enter your text here"></textarea>
-      <button id="submit-input" class="submit-button">
-        <span id="submit-text">Submit</span>
-        <div class="lds-ellipsis submit-loader" style="display: none;">
-          <div></div>
-          <div></div>
-          <div></div>
-          <div></div>
+      <div class="buttons-container">
+        <div class="submit-clear-buttons">
+          <button id="submit-input" class="submit-button">
+            <span id="submit-text">
+              Scan
+            </span>
+            <div class="lds-ellipsis submit-loader" style="display: none;">
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+            </div>
+          </button>
+          <button id="clear-input" class="clear-button">
+            Clear
+          </button>
         </div>
-      </button>
+        <div class="remove-links-container">
+          <label class="switch">
+            <input type="checkbox" id="remove-links">
+            <span class="slider round"></span>
+          </label>
+          <label for="remove-links">Clean Text</label>
+        </div>
+        
+      </div>
+
     </div>
     <div id="user-input-results" class="scan-page-mod">
       <!-- User input results will be displayed here -->

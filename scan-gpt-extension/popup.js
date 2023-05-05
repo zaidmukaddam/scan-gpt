@@ -2,15 +2,17 @@
 function handleMenuButtonClick(event) {
   const targetId = event.target.id;
   if (targetId === "scan-page-button") {
+    document.getElementById("results").style.display = "block";
     document.getElementById("paragraph-scan").style.display = "flex";
     document.getElementById("page-scan").style.display = "flex";
-    document.querySelector(".user-input-container").style.display = "none";
+    document.querySelector(".scan-text").style.display = "none";
     // Call the existing function to scan the page
     scanPage();
   } else if (targetId === "input-text-button") {
+    document.getElementById("results").style.display = "none";
     document.getElementById("paragraph-scan").style.display = "none";
     document.getElementById("page-scan").style.display = "none";
-    document.querySelector(".user-input-container").style.display = "flex";
+    document.querySelector(".scan-text").style.display = "flex";
   }
 }
 
@@ -21,7 +23,12 @@ document.getElementById("input-text-button").addEventListener("click", handleMen
 const submitButton = document.getElementById("submit-input");
 const submitText = document.getElementById("submit-text");
 const submitLoader = document.getElementsByClassName("submit-loader")[0];
+const clearButton = document.getElementById("clear-input");
 
+clearButton.addEventListener("click", function () {
+  document.getElementById("input-textarea").value = "";
+  document.getElementById("user-input-results").innerHTML = "";
+});
 
 submitButton.addEventListener("click", function () {
   // Replace the "Submit" text with the loader animation
@@ -32,25 +39,36 @@ submitButton.addEventListener("click", function () {
   handleUserInput();
 });
 
-function removeLinks(text) {
-  return text.replace(/https?:\/\/[^\s]+/g, "");
+function removeLinksAndMarkdown(text) {
+  return text.replace(/(\[(.*?)\]\(https?:\/\/[^\s]+\))|([*_~`]|\\[\[\]()<>#+\-!])/g, "");
+}
+
+
+function isGPTGenerated(probability) {
+  const threshold = 50;
+  return probability >= threshold;
 }
 
 
 function handleUserInput() {
   const inputTextarea = document.getElementById("input-textarea");
-  const paragraphs = inputTextarea.value.split(/\n\s*\n/);
-  const cleanedParagraphs = paragraphs.map(removeLinks);
+  const removeLinksCheckbox = document.getElementById("remove-links");
+  let paragraphs = inputTextarea.value.split(/\n\s*\n/);
+
+  // Apply removeLinks function if the checkbox is checked
+  if (removeLinksCheckbox.checked) {
+    paragraphs = paragraphs.map(removeLinksAndMarkdown);
+  }
 
   let paragraphPromises = [];
 
   // Make API requests for each paragraph
-  for (let i = 0; i < cleanedParagraphs.length; i++) {
+  for (let i = 0; i < paragraphs.length; i++) {
     paragraphPromises.push(
       fetch(`https://scangpt.space/api/paragraph-scan`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ text: cleanedParagraphs[i] }),
+        body: JSON.stringify({ text: paragraphs[i] }),
       })
     );
   }
@@ -65,11 +83,19 @@ function handleUserInput() {
       let results = document.getElementById("user-input-results");
       results.innerHTML = ""; // Clear previous results
 
+
+      results.innerHTML += `<h3 class="result-label">Results</h3>`;
+      // a hr element to separate the results from the input box
+      results.innerHTML += `<hr/>`;
+
       for (let i = 0; i < data.length; i++) {
-        results.innerHTML += `<p class="scan-paragraph">${cleanedParagraphs[i]}</p>`;
-        results.innerHTML += `<p class="scan-bubble-focus">${Math.ceil(
-          data[i].probability * 100
-        )}% GPT probability</p>`;
+        const probabilityPercentage = Math.ceil(data[i].probability * 100);
+        const aiGenerated = isGPTGenerated(probabilityPercentage);
+
+        results.innerHTML += `<p class="para-n">Paragraph ${i + 1}: </p>`;
+        results.innerHTML += `<p class="scan-paragraph">${paragraphs[i]}</p>`;
+        results.innerHTML += `<p class="scan-bubble-focus">${probabilityPercentage}% GPT probability ${aiGenerated ? " -  GPT Text Detected" : ""
+          }</p>`;
         results.innerHTML += `<div class="scan-separator"></div>`;
       }
       submitText.style.display = "inline";

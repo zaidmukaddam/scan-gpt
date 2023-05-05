@@ -23,7 +23,7 @@ export default async function handler(
   const text = sanitizeText(req.body.text);
 
   const response = await fetch(
-    `https://508a-35-185-147-178.ngrok-free.app/api/score`,
+    `https://58c1-34-69-69-130.ngrok-free.app/api/score`,
     {
       method: "POST",
       headers: {
@@ -32,6 +32,12 @@ export default async function handler(
       body: JSON.stringify({ text: text }),
     }
   );
+  
+  if (!response.ok) {
+    console.error("error", response);
+    res.status(500).json({ message: "Internal server error" });
+    return;
+  }
   const probability = await response.json();
 
   console.log("response", { text, probability: probability.probability });
