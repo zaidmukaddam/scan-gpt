@@ -74,6 +74,28 @@ export default function Buttons() {
             height={70}
           />
         </motion.a>
+        <motion.a
+          href="/web"
+          data-splitbee-event="Web App"
+          rel="noreferrer"
+          target="_blank"
+          initial={{ opacity: 0, scale: 0.4 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{
+            delay: 0.1,
+            duration: 0.6,
+            type: "spring",
+          }}
+          style={{ transition: "color 0.3s ease" }}
+          className="flex gap-2 items-center justify-center bg-black text-white text-lg font-medium rounded-xl px-6 py-1.5 shadow-sm hover:bg-zinc-900 hover:text-white/40 group"
+        >
+          <Image
+            width="24" height="24" 
+            src="https://img.icons8.com/material-sharp/192/ffffff/globe--v2.png" 
+            alt="globe--v2" 
+            loading="lazy" />
+          Web App
+        </motion.a>
       </div>
     </>
   );
