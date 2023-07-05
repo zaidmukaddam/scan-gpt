@@ -54,7 +54,7 @@ export default function Footer({ page }: { page: "home" | "support" }) {
           <a
             // style={{ color }}
             data-splitbee-event="Visit Zaid Mukaddam"
-            href="https://za16.co"
+            href="https://zaidmukaddam.com"
             rel="noreferrer"
             target="_blank"
             className=" text-white/40 text-sm py-1 px-2 cursor-pointer hover:text-white duration-200"
