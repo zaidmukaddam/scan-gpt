@@ -5,7 +5,7 @@ export default function Extension() {
   useEffect(() => {
     if (typeof window !== "undefined") {
       window.location.href =
-        "https://web.scangpt.space";
+        "https://web.scangpt.wtf";
     }
   }, []);
 
@@ -16,7 +16,7 @@ export default function Extension() {
         If you are not instantly redirected,{" "}
         <Link
           className=" underline text-purple-400 "
-          href="https://web.scangpt.space"
+          href="https://web.scangpt.wtf"
         >
           click here
         </Link>

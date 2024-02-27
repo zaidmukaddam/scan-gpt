@@ -2,7 +2,7 @@
 
 Our extension makes it simple to find GPT-generated text on any web page. Just install it and let it scan the page for you.
 
-Website → [ ScanGPT ](https://scangpt.space)
+Website → [ ScanGPT ](https://scangpt.wtf)
 
 Extension → [ Install ](https://chrome.google.com/webstore/detail/scangpt/goaaajgmfpnfebljepkcdmlmjfpeamko)
 
@@ -10,7 +10,7 @@ Instagram → [ @ScanGPT ](https://instagram.com/scangpt)
 
 ### Some Snaps:
 
-<a href="https://scangpt.space"><img alt="Redesigned Home Page" src="https://github.com/zaidmukaddam/scan-gpt/blob/main/images/home-page.png" style="border-radius:16px"></a>
+<a href="https://scangpt.wtf"><img alt="Redesigned Home Page" src="https://github.com/zaidmukaddam/scan-gpt/blob/main/images/home-page.png" style="border-radius:16px"></a>
 
 ### Tech:
 

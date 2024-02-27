@@ -11,8 +11,8 @@ export default function Home() {
       <SEO
         title="ScanGPT | Download Extension"
         description="Identify GPT-generated text on any web page with our advanced extension."
-        image="https://scangpt.space/og/home-image.png"
-        url="https://scangpt.space/"
+        image="https://scangpt.wtf/og/home-image.png"
+        url="https://scangpt.wtf/"
       />
       <main className="w-full flex flex-col items-center">
         <Header />

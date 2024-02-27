@@ -65,7 +65,7 @@ function handleUserInput() {
   // Make API requests for each paragraph
   for (let i = 0; i < paragraphs.length; i++) {
     paragraphPromises.push(
-      fetch(`https://scangpt.space/api/paragraph-scan`, {
+      fetch(`https://scangpt.wtf/api/ext-detect`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ text: paragraphs[i] }),
@@ -113,9 +113,9 @@ function handleUserInput() {
       errorContainer.style.alignItems = "center";
 
       errorContainer.innerHTML += `<p class="error-message">Something went wrong. Try again later.</p>`; // If the error persists, contact our support team.
-      errorContainer.innerHTML += `<a class="error-link" href="https://scangpt.space/support" target="_blank" rel="noreferrer">Support Page</a>`;
+      errorContainer.innerHTML += `<a class="error-link" href="https://scangpt.wtf/support" target="_blank" rel="noreferrer">Support Page</a>`;
       errorContainer.innerHTML += `<p class="error-or">OR</p>`;
-      errorContainer.innerHTML += `<p class="error-message">Try using the <a class="error-link" href="https://scangpt.space/app" target="_blank" rel="noreferrer">app</a>.</p>`;
+      errorContainer.innerHTML += `<p class="error-message">Try using the <a class="error-link" href="https://scangpt.wtf/app" target="_blank" rel="noreferrer">app</a>.</p>`;
     });
 }
 
@@ -136,7 +136,7 @@ function scanPage() {
 
         for (let i = 0; i < paragraphs.length; i++) {
           paragraphPromises.push(
-            fetch(`https://scangpt.space/api/paragraph-scan`, {
+            fetch(`https://scangpt.wtf/api/ext-detect`, {
               method: "POST",
               headers: { "Content-Type": "application/json" },
               body: JSON.stringify({ text: paragraphs[i] }),
@@ -145,7 +145,7 @@ function scanPage() {
         }
         for (let i = 0; i < collections.length; i++) {
           collectionPromises.push(
-            fetch(`https://scangpt.space/api/paragraph-scan`, {
+            fetch(`https://scangpt.wtf/api/ext-detect`, {
               method: "POST",
               headers: { "Content-Type": "application/json" },
               body: JSON.stringify({ text: collections[i] }),
@@ -229,9 +229,9 @@ function scanPage() {
             errorContainer.style.alignItems = "center";
 
             errorContainer.innerHTML += `<p class="error-message">Something went wrong. Try again later.</p>`; // If the error persists, contact our support team.
-            errorContainer.innerHTML += `<a class="error-link" href="https://scangpt.space/support" target="_blank" rel="noreferrer">Support Page</a>`;
+            errorContainer.innerHTML += `<a class="error-link" href="https://scangpt.wtf/support" target="_blank" rel="noreferrer">Support Page</a>`;
             errorContainer.innerHTML += `<p class="error-or">OR</p>`;
-            errorContainer.innerHTML += `<p class="error-message">Try using the <a class="error-link" href="https://scangpt.space/app" target="_blank" rel="noreferrer">app</a>.</p>`;
+            errorContainer.innerHTML += `<p class="error-message">Try using the <a class="error-link" href="https://scangpt.wtf/app" target="_blank" rel="noreferrer">app</a>.</p>`;
           });
       }
     );

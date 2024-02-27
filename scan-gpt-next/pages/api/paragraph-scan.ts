@@ -23,7 +23,7 @@ export default async function handler(
   const text = sanitizeText(req.body.text);
 
   const response = await fetch(
-    `https://9cdd41621cd4.ngrok.app/api/score`,
+    `https://scangpt.tunnelto.dev/score/gpt`,
     {
       method: "POST",
       headers: {
@@ -40,8 +40,8 @@ export default async function handler(
   }
   const probability = await response.json();
 
-  console.log("response", { text, probability: probability.probability });
-  res.status(200).json({ text, probability: probability.probability });
+  console.log("response", { text, probability: probability.scores["AI"] });
+  res.status(200).json({ text, probability: probability.scores["AI"] });
 }
 
 function sanitizeText(text: string) {

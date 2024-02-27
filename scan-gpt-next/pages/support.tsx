@@ -18,8 +18,8 @@ export default function Support() {
         <SEO
           title="ScanGPT | Support"
           description="Get help with our extension."
-          image="https://scangpt.space/og/support-image.png"
-          url="https://scangpt.space/support"
+          image="https://scangpt.wtf/og/support-image.png"
+          url="https://scangpt.wtf/support"
         />
         <main className="w-full flex flex-col items-center">
           <Header />
