@@ -65,7 +65,7 @@ function handleUserInput() {
   // Make API requests for each paragraph
   for (let i = 0; i < paragraphs.length; i++) {
     paragraphPromises.push(
-      fetch(`https://scangpt.wtf/api/ext-detect`, {
+      fetch(`https://scangpt.wtf/api/paragraph-scan`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ text: paragraphs[i] }),
@@ -136,7 +136,7 @@ function scanPage() {
 
         for (let i = 0; i < paragraphs.length; i++) {
           paragraphPromises.push(
-            fetch(`https://scangpt.wtf/api/ext-detect`, {
+            fetch(`https://scangpt.wtf/api/paragraph-scan`, {
               method: "POST",
               headers: { "Content-Type": "application/json" },
               body: JSON.stringify({ text: paragraphs[i] }),
@@ -145,7 +145,7 @@ function scanPage() {
         }
         for (let i = 0; i < collections.length; i++) {
           collectionPromises.push(
-            fetch(`https://scangpt.wtf/api/ext-detect`, {
+            fetch(`https://scangpt.wtf/api/paragraph-scan`, {
               method: "POST",
               headers: { "Content-Type": "application/json" },
               body: JSON.stringify({ text: collections[i] }),
